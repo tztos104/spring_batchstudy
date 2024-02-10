@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+
+  mysql:
+    container_name: batch
+
+    image: mysql:8.0
+
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: batch
+
+
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+      - ./database/config:/docker-entrypoint-initdb.d
